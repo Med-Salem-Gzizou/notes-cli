@@ -5,19 +5,19 @@ var argv = require('minimist')(process.argv.slice(2));
 
 
 if (argv.h || argv.help) {
-  console.log([
-    'usage:',
+	console.log([
+		'usage:',
 		'notes [note-name]',
 		'notes [option] [note-name]',
-    '',
-    'option:',
+		'',
+		'option:',
 		'  -s --show     Show, Display note',
-    '  -a --add      Add or Edit note',
-    '  -d --delete   Delete note',
+		'  -a --add      Add or Edit note',
+		'  -d --delete   Delete note',
 		'  -l --list     Show available list',
-    '  -h --help     Print this list and exit.'
-  ].join('\n'));
-  process.exit();
+		'  -h --help     Print this list and exit.'
+	].join('\n'));
+	process.exit();
 }
 
 var notes = null;

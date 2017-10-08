@@ -1,7 +1,7 @@
 
 /**
- *  all notes stored in json file
- */
+*  all notes stored in json file
+*/
 
 const fs = require('fs');
 var prompt = require('prompt-sync')();
@@ -49,7 +49,7 @@ module.exports.list = function(){
 
 function saveJsonFile(jsonObject, filePath){
 	var jsonString = JSON.stringify(jsonObject, null, space=2);
-  fs.writeFile(filePath, jsonString, 'utf8', (err) => {
-    if(err) console.log(err.message);
-  });
+	fs.writeFile(filePath, jsonString, 'utf8', (err) => {
+		if(err) console.log(err.message);
+	});
 }

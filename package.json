@@ -1,6 +1,6 @@
 {
   "name": "notes-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple command line notes taking app with nodejs",
   "main": "notes.js",
   "scripts": {
@@ -28,5 +28,6 @@
   "dependencies": {
     "minimist": "^1.2.0",
     "prompt-sync": "^4.1.5"
-  }
+  },
+  "devDependencies": {}
 }

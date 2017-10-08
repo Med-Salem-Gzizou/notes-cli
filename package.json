@@ -1,0 +1,32 @@
+{
+  "name": "notes-cli",
+  "version": "1.0.0",
+  "description": "Simple command line notes taking app with nodejs",
+  "main": "notes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Med-Salem/notes-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "command",
+    "line",
+    "notes"
+  ],
+  "author": "Med.Salem",
+  "license": "MIT",
+  "bin": {
+    "notes": "./notes.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Med-Salem/notes-cli/issues"
+  },
+  "homepage": "https://github.com/Med-Salem/notes-cli#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "prompt-sync": "^4.1.5"
+  }
+}

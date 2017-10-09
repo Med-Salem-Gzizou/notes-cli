@@ -1,51 +1,50 @@
 #!/usr/bin/env node
 
 const notesManager = require('./notesManager.js');
-var argv = require('minimist')(process.argv.slice(2));
+var program = require('commander');
 
+program
+	.version('1.1.0')
+	.usage('<note-name>')
+	.action(function(noteName){
+		console.log('[Display] : "%s"', noteName);
+		notesManager.show(noteName);
+	});
 
-if (argv.h || argv.help) {
+program
+	.command('list')
+	.alias('l')
+	.description('Show available notes')
+	.action(function(){
+		console.log('[list] all notes :');
+		notesManager.list();
+	});
+
+program
+	.command('add <note-name>')
+	.alias('a')
+	.description('add new note or edit existing note')
+	.action(function(noteName){
+		console.log('[Add] : "%s"', noteName);
+		notesManager.add(noteName);
+	});
+
+program
+	.command('delete <note-name>')
+	.alias('d')
+	.description('delete note')
+	.action(function(noteName){
+		console.log('[delete] :', noteName);
+		notesManager.delete(noteName);
+	});
+
+program.parse(process.argv);
+
+if (!program.args.length){
 	console.log([
-		'usage:',
-		'notes [note-name]',
-		'notes [option] [note-name]',
+		' Simple command line notes taking app with nodejs ',
+		' Repository: https://github.com/Med-Salem/notes-cli',
 		'',
-		'option:',
-		'  -s --show     Show, Display note',
-		'  -a --add      Add or Edit note',
-		'  -d --delete   Delete note',
-		'  -l --list     Show available list',
-		'  -h --help     Print this list and exit.'
+		' For help run: $ notes --help'
 	].join('\n'));
-	process.exit();
 }
-
-var notes = null;
-
-if (notes = argv.d || argv.delete){
-	if ( typeof notes === "object" ){
-		notes.forEach( (note) => { notesManager.delete(note) });
-	}else {
-		notesManager.delete(notes);
-	}
-}
-
-if (notes = argv.s || argv.show){
-	if ( typeof notes === "object" ){
-		notes.forEach( (note) => { notesManager.show(note) });
-	}else {
-		notesManager.show(notes);
-	}
-}
-
-if (notes = argv.a || argv.add){
-	if ( typeof notes === "object" ){
-		notes.forEach( (note) => { notesManager.add(note) });
-	}else {
-		notesManager.add(notes);
-	}
-}
-
-if (argv.l || argv.list) notesManager.list();
-
-if (argv._.length) argv._.forEach( (note) => { notesManager.add(note) } );

@@ -15,7 +15,6 @@ try {
 }catch (err){ console.log("Error", err.message) }
 
 module.exports.show = function(note){
-	console.log("[  show  ]", note);
 	if( NOTES[note] ){
 		console.log("--------------------------------------");
 		console.log( NOTES[note] );
@@ -26,7 +25,6 @@ module.exports.show = function(note){
 };
 
 module.exports.add  = function(note){
-	console.log("[  add   ]", note);
 	console.log("--------------------------------------");
 	if ( NOTES[note] ) console.log( NOTES[note] );
 	else NOTES[note] = "";
@@ -37,13 +35,11 @@ module.exports.add  = function(note){
 };
 
 module.exports.delete = function(note){
-	console.log("[ delete ]", note);
 	NOTES[note] = undefined;
 	saveJsonFile(NOTES, notesFilePath);
 };
 
 module.exports.list = function(){
-	console.log("[  list  ]");
 	for (var note in NOTES) console.log(note);
 };
 

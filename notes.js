@@ -4,7 +4,7 @@ const notesManager = require('./notesManager.js');
 var program = require('commander');
 
 program
-	.version('1.1.0')
+	.version('1.1.1')
 	.usage('<note-name>')
 	.action(function(noteName){
 		console.log('[Display] : "%s"', noteName);
@@ -43,7 +43,7 @@ program.parse(process.argv);
 if (!program.args.length){
 	console.log([
 		' Simple command line notes taking app with nodejs ',
-		' Repository: https://github.com/Med-Salem/notes-cli',
+		' Repository: https://github.com/Med-Salem-Gzizou/notes-cli',
 		'',
 		' For help run: $ notes --help'
 	].join('\n'));
